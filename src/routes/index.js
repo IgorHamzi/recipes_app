@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from '../pages/Login';
 import Foods from '../pages/Foods';
 import Drinks from '../pages/Drinks';
@@ -16,13 +16,17 @@ import ExploreFoodsNationalities from '../pages/ExploreFoodsNationalities';
 import Profile from '../pages/Profile';
 import DoneRecipes from '../pages/DoneRecipes';
 import FavoriteRecipes from '../pages/FavoriteRecipes';
+import FamilyContext from '../Context/context';
 
 export default function Routes() {
+  const { redirect } = useContext(FamilyContext);
   return (
     <div>
       <main>
         <Switch>
-          <Route exact path="/" component={ Login } />
+          <Route exact path="/">
+            {redirect ? <Redirect to="/foods" /> : <Login />}
+          </Route>
           <Route exact path="/foods" component={ Foods } />
           <Route exact path="/drinks" component={ Drinks } />
           <Route exact path="/foods/{id-da-receita}" component={ FoodDetails } />
