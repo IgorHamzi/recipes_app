@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-export default class ExploreDrinksIngredients extends Component {
-  render() {
-    return (
-      <>
-        <div>explore drinks ingredients teste</div>
-        <Footer />
-      </>
-    );
-  }
+function ExploreDrinksIngredients() {
+  return (
+    <>
+      <Header title="Explore Ingredients" haveSearch={ false } />
+      <div>explore drinks ingredients teste</div>
+      <Footer />
+    </>
+  );
 }
+
+export default ExploreDrinksIngredients;

@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-export default class Drinks extends Component {
-  render() {
-    return <Footer />;
-  }
+function Drinks() {
+  return (
+    <div>
+      <Header title="Drinks" haveSearch />
+      <Footer />
+    </div>
+  );
 }
+
+export default Drinks;

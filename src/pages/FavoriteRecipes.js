@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Header from '../components/Header';
 
-export default class FavoriteRecipes extends Component {
-  render() {
-    return <div>Favorite recipes TESTE</div>;
-  }
+function FavoriteRecipes() {
+  return (
+    <div>
+      <Header title="Favorite Recipes" haveSearch={ false } />
+      <div>Favorite recipes TESTE</div>
+    </div>
+  );
 }
+
+export default FavoriteRecipes;

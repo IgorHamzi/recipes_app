@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-export default class Foods extends Component {
-  render() {
-    return <Footer />;
-  }
+function Foods() {
+  return (
+    <div>
+      <Header title="Foods" haveSearch />
+      <Footer />
+    </div>
+  );
 }
+
+export default Foods;
