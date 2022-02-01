@@ -4,10 +4,19 @@ import GlobalContext from './GlobalContext';
 
 function GlobalProvider({ children }) {
   const [enableSearch, setEnableSearch] = useState(false);
+  const [data, setData] = useState([]);
+  const [drinks, setDrinks] = useState([]);
+  const [meals, setMeals] = useState([]);
 
   const contextValue = {
     enableSearch,
     setEnableSearch,
+    data,
+    setData,
+    drinks,
+    setDrinks,
+    meals,
+    setMeals,
   };
 
   return (
