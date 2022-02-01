@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Header from '../components/Header';
 
-export default class DoneRecipes extends Component {
-  render() {
-    return <div>Done recipes TESTE</div>;
-  }
+function DoneRecipes() {
+  return (
+    <div>
+      <Header title="Done Recipes" haveSearch={ false } />
+      <div>Done recipes TESTE</div>
+    </div>
+  );
 }
+
+export default DoneRecipes;
