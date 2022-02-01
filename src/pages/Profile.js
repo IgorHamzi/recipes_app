@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
-export default class Explore extends Component {
-  render() {
-    return (
+function Profile() {
+  return (
+    <>
+      <Header title="Profile" haveSearch={ false } />
       <div>
         <div data-testid="profile-email">email</div>
         <Link to="/done-recipes">
@@ -31,6 +34,9 @@ export default class Explore extends Component {
           </button>
         </Link>
       </div>
-    );
-  }
+      <Footer />
+    </>
+  );
 }
+
+export default Profile;

@@ -16,10 +16,10 @@ import ExploreFoodsNationalities from '../pages/ExploreFoodsNationalities';
 import Profile from '../pages/Profile';
 import DoneRecipes from '../pages/DoneRecipes';
 import FavoriteRecipes from '../pages/FavoriteRecipes';
-import FamilyContext from '../Context/context';
+import GlobalContext from '../context/GlobalContext';
 
 export default function Routes() {
-  const { redirect } = useContext(FamilyContext);
+  const { redirect } = useContext(GlobalContext);
   return (
     <div>
       <main>

@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import validator from 'validator';
 import { Redirect } from 'react-router';
-import FamilyContext from '../Context/context';
+import GlobalContext from '../context/GlobalContext';
 
 function Login() {
   const [mail, setMail] = useState('');
   const [senha, setSenha] = useState('');
-  const { redirect } = useContext(FamilyContext);
-  const { funt } = useContext(FamilyContext);
+  const { redirect } = useContext(GlobalContext);
+  const { funt } = useContext(GlobalContext);
 
   const setMaill = ({ target }) => {
     setMail(target.value);
