@@ -7,6 +7,21 @@ function GlobalProvider({ children }) {
   const [data, setData] = useState([]);
   const [drinks, setDrinks] = useState([]);
   const [meals, setMeals] = useState([]);
+  const [senha, setSenha] = useState();
+  const [mail, setMail] = useState();
+  const [redirect, setRedirect] = useState(false);
+
+  const funt = async (m, s) => {
+    console.log('dsds');
+    setSenha(s);
+    setMail(m);
+    const ob = { email: m };
+    localStorage.setItem('mealsToken', 1); // type="text"
+    localStorage.setItem('cocktailsToken', 1);
+    localStorage.setItem('user', JSON.stringify(ob));
+    const y = 1020;
+    setTimeout(() => { setRedirect(true); }, y);
+  };
 
   const contextValue = {
     enableSearch,
@@ -17,6 +32,12 @@ function GlobalProvider({ children }) {
     setDrinks,
     meals,
     setMeals,
+    user: {
+      mail,
+      senha,
+    },
+    funt,
+    redirect,
   };
 
   return (
