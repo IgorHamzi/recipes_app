@@ -10,6 +10,7 @@ function GlobalProvider({ children }) {
   const [senha, setSenha] = useState();
   const [mail, setMail] = useState();
   const [redirect, setRedirect] = useState(false);
+  const [detailedFood, setDetailedFood] = useState([]);
 
   const funt = async (m, s) => {
     console.log('dsds');
@@ -38,6 +39,8 @@ function GlobalProvider({ children }) {
     },
     funt,
     redirect,
+    detailedFood,
+    setDetailedFood,
   };
 
   return (

@@ -15,6 +15,8 @@ const fetchApi = (url, value) => {
 
 const requestAPI = {
   drinks: {
+    id: (data) => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=', data),
+
     categories: () => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'),
 
     nameOrFirst12: (data) => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=', data),
@@ -29,6 +31,8 @@ const requestAPI = {
   },
 
   meals: {
+    id: (data) => fetchApi('https://www.themealdb.com/api/json/v1/1/lookup.php?i=', data),
+
     categories: () => fetchApi('https://www.themealdb.com/api/json/v1/1/list.php?c=list'),
 
     nameOrFirst12: (data) => fetchApi('https://www.themealdb.com/api/json/v1/1/search.php?s=', data),
