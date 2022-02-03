@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import requestAPI from '../services';
@@ -17,12 +18,16 @@ function Drinks() {
   return (
     <div>
       <Header title="Drinks" haveSearch />
-      { drinks.slice(0, twelve).map((drink, index) => (<RenderCard
-        key={ drink.idDrink }
-        strMeal={ drink.strDrink }
-        strMealThumb={ drink.strDrinkThumb }
-        index={ index }
-      />)) }
+      { drinks.slice(0, twelve).map((drink, index) => (
+        <Link to={ `/drinks/${drink.idDrink}` } key={ drink.idDrink }>
+          <RenderCard
+            key={ drink.idDrink }
+            strMeal={ drink.strDrink }
+            strMealThumb={ drink.strDrinkThumb }
+            index={ index }
+          />
+        </Link>
+      )) }
       <Footer />
     </div>
   );
