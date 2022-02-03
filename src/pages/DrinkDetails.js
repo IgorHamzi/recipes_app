@@ -22,16 +22,10 @@ function DrinkDetails() {
     return '';
   });
 
-  const measureArray = Object.entries(detailedFood).filter((item) => {
-    if (item[0].includes('strMeasure')) {
-      return item[1];
-    }
-    return ' ';
-  });
-
+  const msar = Object.entries(detailedFood).filter((it) => it[0].includes('strMeasure'));
   return (
     <>
-      { console.log(measureArray) }
+      { console.log(msar) }
       <img
         data-testid="recipe-photo"
         src={ detailedFood.strDrinkThumb }
@@ -65,7 +59,7 @@ function DrinkDetails() {
             data-testid={ `${i}-ingredient-name-and-measure` }
             key={ i }
           >
-            {`${it[1]}: ${measureArray[i][1]}`}
+            {msar[i][1] === null ? `${it[1]}` : `${it[1]} - ${msar[i][1]}`}
           </li>))}
       </ul>
       <p
