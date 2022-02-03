@@ -11,6 +11,7 @@ function GlobalProvider({ children }) {
   const [mail, setMail] = useState();
   const [redirect, setRedirect] = useState(false);
   const [detailedFood, setDetailedFood] = useState([]);
+  const [recomendations, setRecomendations] = useState([]);
 
   const funt = async (m, s) => {
     console.log('dsds');
@@ -41,6 +42,8 @@ function GlobalProvider({ children }) {
     redirect,
     detailedFood,
     setDetailedFood,
+    recomendations,
+    setRecomendations,
   };
 
   return (

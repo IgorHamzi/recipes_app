@@ -76,3 +76,23 @@
 .link-footer {
   cursor: pointer;
 }
+
+.recomendation-card {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.render-card {
+  width: 50%;
+}
+
+.render-card img {
+  width: 100%;
+}
+
+.start-btn {
+  bottom: 0;
+  position: fixed;
+}
