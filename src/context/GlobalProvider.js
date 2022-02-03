@@ -12,6 +12,7 @@ function GlobalProvider({ children }) {
   const [redirect, setRedirect] = useState(false);
   const [detailedFood, setDetailedFood] = useState([]);
   const [recomendations, setRecomendations] = useState([]);
+  const [randomRecipe, setRandomRecipe] = useState([]);
 
   const funt = async (m, s) => {
     console.log('dsds');
@@ -44,6 +45,8 @@ function GlobalProvider({ children }) {
     setDetailedFood,
     recomendations,
     setRecomendations,
+    randomRecipe,
+    setRandomRecipe,
   };
 
   return (

@@ -15,7 +15,7 @@ function RenderCard(props) {
 RenderCard.propTypes = {
   strMeal: PropTypes.string.isRequired,
   strMealThumb: PropTypes.string.isRequired,
-  index: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default RenderCard;
