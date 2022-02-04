@@ -5,7 +5,7 @@ function RenderCard(props) {
   const { strMeal, strMealThumb, index } = props;
 
   return (
-    <div data-testid={ `${index}-recipe-card` }>
+    <div className="render-card" data-testid={ `${index}-recipe-card` }>
       <img data-testid={ `${index}-card-img` } src={ strMealThumb } alt="foodImg" />
       <p data-testid={ `${index}-card-name` }>{ strMeal }</p>
     </div>
@@ -15,7 +15,7 @@ function RenderCard(props) {
 RenderCard.propTypes = {
   strMeal: PropTypes.string.isRequired,
   strMealThumb: PropTypes.string.isRequired,
-  index: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default RenderCard;

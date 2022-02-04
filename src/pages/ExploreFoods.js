@@ -1,9 +1,18 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import GlobalContext from '../context/GlobalContext';
+import requestAPI from '../services';
 
 function ExploreFoods() {
+  const { randomRecipe, setRandomRecipe } = useContext(GlobalContext);
+
+  useEffect(() => {
+    requestAPI.meals.randomFood().then((data) => setRandomRecipe(data.meals[0]));
+  }, []);
+
   return (
     <>
       <Header title="Explore Foods" haveSearch={ false } />
@@ -24,7 +33,7 @@ function ExploreFoods() {
             By Nationality
           </button>
         </Link>
-        <Link to="/">
+        <Link to={ `/foods/${randomRecipe.idMeal}` }>
           <button
             type="button"
             data-testid="explore-surprise"
@@ -34,7 +43,6 @@ function ExploreFoods() {
         </Link>
       </div>
       <Footer />
-
     </>
   );
 }

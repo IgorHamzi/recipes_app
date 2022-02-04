@@ -1,11 +1,107 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useContext } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import requestAPI from '../services';
+import GlobalContext from '../context/GlobalContext';
+import RenderCard from '../components/RenderCard';
 
 function FoodDetails() {
+  const six = 6;
   const { id } = useParams();
+  const { detailedFood, setDetailedFood } = useContext(GlobalContext);
+  const { recomendations, setRecomendations } = useContext(GlobalContext);
+  useEffect(() => {
+    requestAPI.drinks.nameOrFirst12().then((data) => setRecomendations(data.drinks));
+    requestAPI.meals.id(id).then((food) => setDetailedFood(food.meals[0]));
+  }, []);
+
+  const itemArray = Object.entries(detailedFood).filter((item) => {
+    if (item[0].includes('strIngredient') && item[1] !== '') {
+      return item[1];
+    }
+    return '';
+  });
+
+  const measureArray = Object.entries(detailedFood).filter((item) => {
+    if (item[0].includes('strMeasure') && item[1] !== ' ') {
+      return item[1];
+    }
+    return '';
+  });
 
   return (
-    <p>{ id }</p>
+    <>
+      <img
+        data-testid="recipe-photo"
+        src={ detailedFood.strMealThumb }
+        alt="recipephoto"
+      />
+      <h1
+        data-testid="recipe-title"
+      >
+        { detailedFood.strMeal }
+      </h1>
+      <button
+        type="button"
+        data-testid="share-btn"
+      >
+        Teste
+      </button>
+      <button
+        type="button"
+        data-testid="favorite-btn"
+      >
+        Teste
+      </button>
+      <p
+        data-testid="recipe-category"
+      >
+        { detailedFood.strCategory }
+      </p>
+      <ul className="ingredient">
+        { itemArray.map((it, i) => (
+          <li
+            data-testid={ `${i}-ingredient-name-and-measure` }
+            key={ i }
+          >
+            {`${it[1]}: ${measureArray[i][1]}`}
+          </li>))}
+      </ul>
+      <p
+        data-testid="instructions"
+      >
+        { detailedFood.strInstructions }
+      </p>
+      <iframe src={ detailedFood.strYoutube } title="tutorial" data-testid="video" />
+      <div className="recomendation-card">
+        { recomendations.slice(0, six).map((drink, index) => (
+          <Link
+            to={ `/drinks/${drink.idDrink}` }
+            key={ drink.idDrink }
+            data-testid={ `${index}-recomendation-card` }
+          >
+            <RenderCard
+              key={ drink.idDrink }
+              strMeal={ drink.strDrink }
+              strMealThumb={ drink.strDrinkThumb }
+              index={ index }
+            />
+          </Link>
+        )) }
+      </div>
+      <button
+        type="button"
+        data-testid="start-recipe-btn"
+        className="start-btn"
+      >
+        <a
+          href={ `/foods/${id}/in-progress` }
+
+        >
+          Start Recipe
+        </a>
+      </button>
+    </>
   );
 }
 
