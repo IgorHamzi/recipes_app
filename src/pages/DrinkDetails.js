@@ -40,6 +40,7 @@ function DrinkDetails() {
       <ShareBtn
         id={ id }
         foodType="drinks"
+        dataId="share-btn"
       />
       <FavoriteBtn
         id={ id }

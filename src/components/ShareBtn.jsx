@@ -4,11 +4,12 @@ import copy from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
 
 function ShareBtn(props) {
-  const { id, foodType } = props;
+  const { id, foodType, dataId } = props;
 
   function copyToClip(idElement, foodTypeElement) {
     const textToCopy = `http://localhost:3000/${foodTypeElement}/${idElement}`;
     copy(textToCopy);
+    // eslint-disable-next-line no-alert
     alert('Link copied!');
   }
 
@@ -17,7 +18,7 @@ function ShareBtn(props) {
       <button
         type="button"
         onClick={ () => copyToClip(id, foodType) }
-        data-testid="share-btn"
+        data-testid={ dataId }
         src={ shareIcon }
       >
         <p>Link copied!</p>
@@ -31,6 +32,7 @@ function ShareBtn(props) {
 ShareBtn.propTypes = {
   id: PropTypes.number.isRequired,
   foodType: PropTypes.string.isRequired,
+  dataId: PropTypes.string.isRequired,
 };
 
 export default ShareBtn;
