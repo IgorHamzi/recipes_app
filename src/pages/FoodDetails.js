@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import requestAPI from '../services';
 import GlobalContext from '../context/GlobalContext';
 import RenderCard from '../components/RenderCard';
+import FavoriteBtn from '../components/FavoriteBtn';
 
 function FoodDetails() {
   const six = 6;
@@ -47,12 +48,15 @@ function FoodDetails() {
       >
         Teste
       </button>
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        Teste
-      </button>
+      <FavoriteBtn
+        id={ id }
+        type="food"
+        nationality={ detailedFood.strArea }
+        category={ detailedFood.strCategory }
+        alcoholicOrNot=""
+        name={ detailedFood.strMeal }
+        image={ detailedFood.strMealThumb }
+      />
       <p
         data-testid="recipe-category"
       >
