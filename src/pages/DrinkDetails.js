@@ -5,6 +5,7 @@ import requestAPI from '../services';
 import GlobalContext from '../context/GlobalContext';
 import RenderCard from '../components/RenderCard';
 import FavoriteBtn from '../components/FavoriteBtn';
+import ShareBtn from '../components/ShareBtn';
 
 function DrinkDetails() {
   const six = 6;
@@ -36,12 +37,10 @@ function DrinkDetails() {
       >
         { detailedFood.strDrink }
       </h1>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        Teste
-      </button>
+      <ShareBtn
+        id={ id }
+        foodType="drinks"
+      />
       <FavoriteBtn
         id={ id }
         type="drink"
