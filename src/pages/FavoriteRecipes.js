@@ -3,14 +3,14 @@ import FavoriteCard from '../components/FavoriteCard';
 import Header from '../components/Header';
 
 function FavoriteRecipes() {
-  const allFoodsFavorite = JSON.parse(localStorage.getItem('favoriteRecipes'));// array das comidas favoritadas
+  const favFoods = JSON.parse(localStorage.getItem('favoriteRecipes'));// array das comidas favoritadas
 
   return (
     <div>
       <Header title="Favorite Recipes" haveSearch={ false } />
       <div>Favorite recipes TESTE</div>
       <div>
-        { allFoodsFavorite.map((item, index) => (<FavoriteCard
+        { favFoods === null ? <p>nada</p> : favFoods.map((item, index) => (<FavoriteCard
           key={ item.id }
           image={ item.image }
           name={ item.name }
