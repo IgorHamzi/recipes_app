@@ -34,7 +34,7 @@ function FavoriteCard(props) {
 
   return (
     <div>
-      { () => isFoodOrDrink() }
+      {() => isFoodOrDrink()}
       <Link to={ `/${isFoodOrDrink()}/${id}` }>
         <div>
           <img data-testid={ `${index}-horizontal-image` } src={ image } alt="food-img" />
@@ -42,26 +42,26 @@ function FavoriteCard(props) {
             <p
               data-testid={ `${index}-horizontal-top-text` }
             >
-              { `${nationality} - ${category}` }
+              {`${nationality} - ${category}`}
             </p>
-            <p data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</p>
-            <p data-testid={ `${index}-horizontal-name` }>{ name }</p>
+            <p data-testid={ `${index}-horizontal-top-text` }>{alcoholicOrNot}</p>
+            <p data-testid={ `${index}-horizontal-name` }>{name}</p>
           </div>
-          <ShareBtn
-            dataId={ `${index}-horizontal-share-btn` }
-            id={ id }
-            foodType={ isFoodOrDrink() }
-          />
-          <button
-            type="button"
-            onClick={ () => unfavFood() }
-            src={ blackHeartIcon }
-            data-testid={ `${index}-horizontal-favorite-btn` }
-          >
-            <img src={ blackHeartIcon } alt="icon fav" />
-          </button>
         </div>
       </Link>
+      <ShareBtn
+        dataId={ `${index}-horizontal-share-btn` }
+        id={ id }
+        foodType={ isFoodOrDrink() }
+      />
+      <button
+        type="button"
+        onClick={ () => unfavFood() }
+        src={ blackHeartIcon }
+        data-testid={ `${index}-horizontal-favorite-btn` }
+      >
+        <img src={ blackHeartIcon } alt="icon fav" />
+      </button>
     </div>
   );
 }
