@@ -4,6 +4,8 @@ import { useParams, Link } from 'react-router-dom';
 import requestAPI from '../services';
 import GlobalContext from '../context/GlobalContext';
 import RenderCard from '../components/RenderCard';
+import FavoriteBtn from '../components/FavoriteBtn';
+import ShareBtn from '../components/ShareBtn';
 
 function DrinkDetails() {
   const six = 6;
@@ -25,7 +27,6 @@ function DrinkDetails() {
   const msar = Object.entries(detailedFood).filter((it) => it[0].includes('strMeasure'));
   return (
     <>
-      { console.log(msar) }
       <img
         data-testid="recipe-photo"
         src={ detailedFood.strDrinkThumb }
@@ -36,18 +37,20 @@ function DrinkDetails() {
       >
         { detailedFood.strDrink }
       </h1>
-      <button
-        type="button"
-        data-testid="share-btn"
-      >
-        Teste
-      </button>
-      <button
-        type="button"
-        data-testid="favorite-btn"
-      >
-        Teste
-      </button>
+      <ShareBtn
+        id={ id }
+        foodType="drinks"
+        dataId="share-btn"
+      />
+      <FavoriteBtn
+        id={ id }
+        type="drink"
+        nationality=""
+        category={ detailedFood.strCategory }
+        alcoholicOrNot={ detailedFood.strAlcoholic }
+        name={ detailedFood.strDrink }
+        image={ detailedFood.strDrinkThumb }
+      />
       <p
         data-testid="recipe-category"
       >

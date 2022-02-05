@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import GlobalContext from './GlobalContext';
+import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 
 function GlobalProvider({ children }) {
   const [enableSearch, setEnableSearch] = useState(false);
@@ -13,6 +14,7 @@ function GlobalProvider({ children }) {
   const [detailedFood, setDetailedFood] = useState([]);
   const [recomendations, setRecomendations] = useState([]);
   const [randomRecipe, setRandomRecipe] = useState([]);
+  const [likeStatus, setLikeStatus] = useState(whiteHeartIcon);
 
   const funt = async (m, s) => {
     console.log('dsds');
@@ -47,6 +49,8 @@ function GlobalProvider({ children }) {
     setRecomendations,
     randomRecipe,
     setRandomRecipe,
+    likeStatus,
+    setLikeStatus,
   };
 
   return (
