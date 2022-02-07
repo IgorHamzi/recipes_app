@@ -17,6 +17,10 @@ const requestAPI = {
   drinks: {
     id: (data) => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=', data),
 
+    allIngredients: () => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'),
+
+    ingredientPhoto: (data) => fetchApi('https://www.thecocktaildb.com/images/ingredients/', `${data}.png`),
+
     categories: () => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'),
 
     nameOrFirst12: (data) => fetchApi('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=', data),
@@ -32,6 +36,10 @@ const requestAPI = {
 
   meals: {
     id: (data) => fetchApi('https://www.themealdb.com/api/json/v1/1/lookup.php?i=', data),
+
+    allIngredients: () => fetchApi('https://www.themealdb.com/api/json/v1/1/list.php?i=list'),
+
+    ingredientPhoto: (data) => fetchApi('https://www.themealdb.com/images/ingredients/', `${data}.png`),
 
     categories: () => fetchApi('https://www.themealdb.com/api/json/v1/1/list.php?c=list'),
 
