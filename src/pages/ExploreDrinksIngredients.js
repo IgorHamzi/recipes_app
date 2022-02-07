@@ -16,7 +16,7 @@ function ExploreDrinksIngredients() {
 
   return (
     <div>
-      <Header title="Explore Ingredients" haveSearch />
+      <Header title="Explore Ingredients" />
       { drinks.slice(0, twelve).map((food, index) => (
         <DrinkIngredientCard
           key={ food.idIngredient1 }
