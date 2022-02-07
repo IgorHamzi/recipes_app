@@ -110,3 +110,7 @@
   bottom: 0;
   position: fixed;
 }
+
+.centroDaTela {
+  width: 30%;
+}
