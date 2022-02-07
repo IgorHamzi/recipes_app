@@ -33,12 +33,12 @@ export default function Routes() {
           <Route exact path="/drinks/:id" component={ DrinkDetails } />
           <Route
             exact
-            path="/foods/{id-da-receita}/in-progress"
+            path="/foods/:id/in-progress"
             component={ FoodInProgress }
           />
           <Route
             exact
-            path="/drinks/{id-da-receita}/in-progress"
+            path="/drinks/:id/in-progress"
             component={ DrinkInProgress }
           />
           <Route exact path="/explore" component={ Explore } />
