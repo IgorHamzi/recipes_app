@@ -79,16 +79,30 @@
 
 .recomendation-card {
   display: flex;
-  flex-wrap: wrap;
+  height: 40vh;
+  margin: 0;
   overflow-x: scroll;
+  padding: 0;
   width: 100%;
 }
 
+.recomendation-card a {
+  min-width: 60%;
+}
+
 .render-card {
-  width: 50%;
+  align-items: center;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .render-card img {
+  height: auto;
   width: 100%;
 }
 
