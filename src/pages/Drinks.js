@@ -9,18 +9,32 @@ import RenderCard from '../components/RenderCard';
 import GlobalContext from '../context/GlobalContext';
 
 function Drinks() {
-  const { drinks, setDrinks } = useContext(GlobalContext);
+  const { drinks, setDrinks, categoryD, setCategoryD,
+    setDefcategoryD } = useContext(GlobalContext);
   useEffect(() => {
     requestAPI.drinks.nameOrFirst12().then((data) => setDrinks(data.drinks));
+    requestAPI.drinks.categories().then((food) => setCategoryD(food.drinks));
   }, []);
 
   const twelve = 12;
+  const twelve2 = 5;
   console.log(drinks);
 
   return (
     <div>
       <Header title="Drinks" haveSearch />
-      { drinks.slice(0, twelve).map((drink, index) => (
+      { categoryD.slice(0, twelve2).map((w, i) => (
+        <button
+          key={ i }
+          type="button"
+          data-testid={ `${w.strCategory}-category-filter` }
+          value={ w.strCategory }
+          onClick={ (e) => setDefcategoryD(e.target.value) }
+        >
+          {w.strCategory}
+        </button>
+      )) }
+      { drinks.slice(0, twelve).filter(() => true).map((drink, index) => (
         <Link to={ `/drinks/${drink.idDrink}` } key={ drink.idDrink }>
           <RenderCard
             key={ drink.idDrink }

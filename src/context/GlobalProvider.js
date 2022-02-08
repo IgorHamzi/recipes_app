@@ -17,9 +17,11 @@ function GlobalProvider({ children }) {
   const [likeStatus, setLikeStatus] = useState(whiteHeartIcon);
   const [allNationalities, setAllNationalities] = useState([]);
   const [nationalitySelected, setNationalitySelected] = useState('All');
+  const [categoryF, setCategoryF] = useState(['All']);
+  const [categoryD, setCategoryD] = useState(['All']);
+  const [defcategoryD, setDefcategoryD] = useState('');
 
   const funt = async (m, s) => {
-    console.log('dsds');
     setSenha(s);
     setMail(m);
     const ob = { email: m };
@@ -57,6 +59,12 @@ function GlobalProvider({ children }) {
     setAllNationalities,
     nationalitySelected,
     setNationalitySelected,
+    categoryF,
+    setCategoryF,
+    categoryD,
+    setCategoryD,
+    defcategoryD,
+    setDefcategoryD,
   };
 
   return (
