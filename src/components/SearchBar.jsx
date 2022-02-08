@@ -10,7 +10,6 @@ function SearchBar() {
   const setMeals2 = async (food) => {
     if (food.meals !== null) { setMeals(food.meals); }
     if (food.meals == null) {
-      console.log('não ecdfdf');
       await requestAPI.meals.nameOrFirst12().then((foodd) => setMeals(foodd.meals)); // tratar o dupluplo alert
       global.alert('Sorry, we haven\'t found any recipes for these filters.');
     }
@@ -19,7 +18,6 @@ function SearchBar() {
   const setDrinks2 = async (food) => {
     if (food.drinks !== null) { setDrinks(food.drinks); }
     if (food.drinks == null) {
-      console.log('não ecdfdf');
       await requestAPI.drinks.nameOrFirst12().then((data) => setDrinks(data.drinks));
       global.alert('Sorry, we haven\'t found any recipes for these filters.');
     }
