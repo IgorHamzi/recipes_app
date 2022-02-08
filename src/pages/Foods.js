@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -14,6 +15,7 @@ function Foods() {
   }, []);
 
   const twelve = 12;
+  console.log(meals);
 
   return (
     <div>
@@ -29,6 +31,7 @@ function Foods() {
         </Link>
       )) }
       <Footer />
+      { meals.length === 1 && <Redirect to={ `/foods/${meals[0].idMeal}` } />}
     </div>
   );
 }

@@ -3,20 +3,41 @@ import requestAPI from '../services';
 import GlobalContext from '../context/GlobalContext';
 
 function SearchBar() {
-  const { setMeals } = useContext(GlobalContext);
+  const { setMeals, setDrinks } = useContext(GlobalContext);
   const [option, setOption] = useState('');
   const [searchi, setSearchi] = useState('');
 
+  const setMeals2 = (food) => {
+    if (food.meals !== null) { setMeals(food.meals); }
+    if (food.meals == null) {
+      console.log('não ecdfdf');
+      const gg = 'Sorry, we haven';
+      const sobr = 't found any recipes for these filters.';
+      global.alert(`${gg + sobr}`);
+    }
+  };
+
+  const setDrinks2 = (food) => {
+    if (food.drinks !== null) { setDrinks(food.drinks); }
+    if (food.drinks == null) {
+      console.log('não ecdfdf');
+      global.alert('Sorry, we haven\'t found any recipes for these filters.');
+    }
+  };
+
   const requestApiIngr = (ing) => {
-    requestAPI.meals.ingredient(ing).then((food) => setMeals(food.meals));
+    requestAPI.meals.ingredient(ing).then((food) => setMeals2(food));
+    requestAPI.drinks.ingredient(ing).then((data) => setDrinks2(data));
   };
 
   const requestApiName = (name) => {
-    requestAPI.meals.nameOrFirst12(name).then((food) => setMeals(food.meals));
+    requestAPI.meals.nameOrFirst12(name).then((food) => setMeals2(food));
+    requestAPI.drinks.nameOrFirst12(name).then((data) => setDrinks2(data));
   };
 
   const requestApiFirstletter = (name) => {
-    requestAPI.meals.firstLetter(name).then((food) => setMeals(food.meals));
+    requestAPI.meals.firstLetter(name).then((food) => setMeals2(food.meals));
+    requestAPI.drinks.firstLetter(name).then((data) => setDrinks2(data));
   };
 
   const pressBut = () => {
