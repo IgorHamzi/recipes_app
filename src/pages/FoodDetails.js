@@ -3,9 +3,9 @@ import React, { useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import requestAPI from '../services';
 import GlobalContext from '../context/GlobalContext';
-import RenderCard from '../components/RenderCard';
 import FavoriteBtn from '../components/FavoriteBtn';
 import ShareBtn from '../components/ShareBtn';
+import DetailedCard from '../components/DetailedCard';
 
 function FoodDetails() {
   const six = 6;
@@ -84,7 +84,7 @@ function FoodDetails() {
             key={ drink.idDrink }
             data-testid={ `${index}-recomendation-card` }
           >
-            <RenderCard
+            <DetailedCard
               key={ drink.idDrink }
               strMeal={ drink.strDrink }
               strMealThumb={ drink.strDrinkThumb }

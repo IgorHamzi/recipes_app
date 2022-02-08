@@ -13,6 +13,7 @@ import ExploreDrinks from '../pages/ExploreDrinks';
 import ExploreFoodsIngredients from '../pages/ExploreFoodsIngredients';
 import ExploreDrinksIngredients from '../pages/ExploreDrinksIngredients';
 import ExploreFoodsNationalities from '../pages/ExploreFoodsNationalities';
+import ExploreDrinksNationalities from '../pages/ExploreDrinksNationalities';
 import Profile from '../pages/Profile';
 import DoneRecipes from '../pages/DoneRecipes';
 import FavoriteRecipes from '../pages/FavoriteRecipes';
@@ -33,12 +34,12 @@ export default function Routes() {
           <Route exact path="/drinks/:id" component={ DrinkDetails } />
           <Route
             exact
-            path="/foods/{id-da-receita}/in-progress"
+            path="/foods/:id/in-progress"
             component={ FoodInProgress }
           />
           <Route
             exact
-            path="/drinks/{id-da-receita}/in-progress"
+            path="/drinks/:id/in-progress"
             component={ DrinkInProgress }
           />
           <Route exact path="/explore" component={ Explore } />
@@ -58,6 +59,11 @@ export default function Routes() {
             exact
             path="/explore/foods/nationalities"
             component={ ExploreFoodsNationalities }
+          />
+          <Route
+            exact
+            path="/explore/drinks/nationalities"
+            component={ ExploreDrinksNationalities }
           />
           <Route exact path="/profile" component={ Profile } />
           <Route exact path="/done-recipes" component={ DoneRecipes } />

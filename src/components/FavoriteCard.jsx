@@ -37,7 +37,12 @@ function FavoriteCard(props) {
       {() => isFoodOrDrink()}
       <Link to={ `/${isFoodOrDrink()}/${id}` }>
         <div>
-          <img data-testid={ `${index}-horizontal-image` } src={ image } alt="food-img" />
+          <img
+            className="centroDaTela"
+            data-testid={ `${index}-horizontal-image` }
+            src={ image }
+            alt="food-img"
+          />
           <div>
             <p
               data-testid={ `${index}-horizontal-top-text` }

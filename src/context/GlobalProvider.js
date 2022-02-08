@@ -15,6 +15,8 @@ function GlobalProvider({ children }) {
   const [recomendations, setRecomendations] = useState([]);
   const [randomRecipe, setRandomRecipe] = useState([]);
   const [likeStatus, setLikeStatus] = useState(whiteHeartIcon);
+  const [allNationalities, setAllNationalities] = useState([]);
+  const [nationalitySelected, setNationalitySelected] = useState('All');
 
   const funt = async (m, s) => {
     console.log('dsds');
@@ -51,6 +53,10 @@ function GlobalProvider({ children }) {
     setRandomRecipe,
     likeStatus,
     setLikeStatus,
+    allNationalities,
+    setAllNationalities,
+    nationalitySelected,
+    setNationalitySelected,
   };
 
   return (
