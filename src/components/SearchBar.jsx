@@ -7,20 +7,20 @@ function SearchBar() {
   const [option, setOption] = useState('');
   const [searchi, setSearchi] = useState('');
 
-  const setMeals2 = (food) => {
+  const setMeals2 = async (food) => {
     if (food.meals !== null) { setMeals(food.meals); }
     if (food.meals == null) {
       console.log('não ecdfdf');
-      const gg = 'Sorry, we haven';
-      const sobr = 't found any recipes for these filters.';
-      global.alert(`${gg + sobr}`);
+      await requestAPI.meals.nameOrFirst12().then((foodd) => setMeals(foodd.meals)); // tratar o dupluplo alert
+      global.alert('Sorry, we haven\'t found any recipes for these filters.');
     }
   };
 
-  const setDrinks2 = (food) => {
+  const setDrinks2 = async (food) => {
     if (food.drinks !== null) { setDrinks(food.drinks); }
     if (food.drinks == null) {
       console.log('não ecdfdf');
+      await requestAPI.drinks.nameOrFirst12().then((data) => setDrinks(data.drinks));
       global.alert('Sorry, we haven\'t found any recipes for these filters.');
     }
   };
@@ -36,7 +36,7 @@ function SearchBar() {
   };
 
   const requestApiFirstletter = (name) => {
-    requestAPI.meals.firstLetter(name).then((food) => setMeals2(food.meals));
+    requestAPI.meals.firstLetter(name).then((food) => setMeals2(food));
     requestAPI.drinks.firstLetter(name).then((data) => setDrinks2(data));
   };
 
