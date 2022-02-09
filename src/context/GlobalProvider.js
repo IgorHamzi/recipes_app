@@ -7,7 +7,7 @@ function GlobalProvider({ children }) {
   const [enableSearch, setEnableSearch] = useState(false);
   const [data, setData] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [meals, setMeals] = useState([]);
+  const [meals, setMeals] = useState([{ strCategory: '', idMeal: '', strMealThumb: '' }]);
   const [senha, setSenha] = useState();
   const [mail, setMail] = useState();
   const [redirect, setRedirect] = useState(false);
@@ -17,9 +17,14 @@ function GlobalProvider({ children }) {
   const [likeStatus, setLikeStatus] = useState(whiteHeartIcon);
   const [allNationalities, setAllNationalities] = useState([]);
   const [nationalitySelected, setNationalitySelected] = useState('All');
+  const [categoryF, setCategoryF] = useState([{ strCategory: '' }]);
+  const [categoryD, setCategoryD] = useState(['All']);
+  const [defcategoryD, setDefcategoryD] = useState(false);
+  const [defcategoryF, setDefcategoryF] = useState(false);
+  const [defcategoryFv, setDefcategoryFv] = useState('');
+  const [defcategoryDv, setDefcategoryDv] = useState('');
 
   const funt = async (m, s) => {
-    console.log('dsds');
     setSenha(s);
     setMail(m);
     const ob = { email: m };
@@ -57,6 +62,18 @@ function GlobalProvider({ children }) {
     setAllNationalities,
     nationalitySelected,
     setNationalitySelected,
+    categoryF,
+    setCategoryF,
+    categoryD,
+    setCategoryD,
+    defcategoryD,
+    setDefcategoryD,
+    defcategoryF,
+    setDefcategoryF,
+    defcategoryFv,
+    setDefcategoryFv,
+    defcategoryDv,
+    setDefcategoryDv,
   };
 
   return (
