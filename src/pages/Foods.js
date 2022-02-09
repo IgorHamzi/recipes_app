@@ -20,6 +20,11 @@ function Foods() {
   const twelve2 = 5;
   console.log(meals);
 
+  const comCate = (w) => {
+    requestAPI.meals.category(w).then((food) => setMeals(food.meals));
+  };
+  // w.strCategory.includes(defcategoryF, 0) === true;
+
   return (
     <div>
       <Header title="Foods" haveSearch />
@@ -28,8 +33,8 @@ function Foods() {
           key={ i }
           type="button"
           data-testid={ `${w.strCategory}-category-filter` }
-          value="teste"
-        // onClick={ () => pressBut() }
+          value={ w.strCategory }
+          onClick={ (e) => comCate(e.target.value) }
         >
           {w.strCategory}
         </button>
@@ -45,7 +50,8 @@ function Foods() {
         </Link>
       )) }
       <Footer />
-      { meals.length === 1 && <Redirect to={ `/foods/${meals[0].idMeal}` } />}
+      { (meals.length === 1 && categoryF.strCategory !== meals.strCategory)
+       && <Redirect to={ `/foods/${meals[0].idMeal}` } />}
     </div>
   );
 }

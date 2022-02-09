@@ -20,6 +20,7 @@ function GlobalProvider({ children }) {
   const [categoryF, setCategoryF] = useState(['All']);
   const [categoryD, setCategoryD] = useState(['All']);
   const [defcategoryD, setDefcategoryD] = useState('');
+  const [defcategoryF, setDefcategoryF] = useState('');
 
   const funt = async (m, s) => {
     setSenha(s);
@@ -65,6 +66,8 @@ function GlobalProvider({ children }) {
     setCategoryD,
     defcategoryD,
     setDefcategoryD,
+    defcategoryF,
+    setDefcategoryF,
   };
 
   return (

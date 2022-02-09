@@ -9,8 +9,7 @@ import RenderCard from '../components/RenderCard';
 import GlobalContext from '../context/GlobalContext';
 
 function Drinks() {
-  const { drinks, setDrinks, categoryD, setCategoryD,
-    setDefcategoryD } = useContext(GlobalContext);
+  const { drinks, setDrinks, categoryD, setCategoryD } = useContext(GlobalContext);
   useEffect(() => {
     requestAPI.drinks.nameOrFirst12().then((data) => setDrinks(data.drinks));
     requestAPI.drinks.categories().then((food) => setCategoryD(food.drinks));
@@ -19,6 +18,10 @@ function Drinks() {
   const twelve = 12;
   const twelve2 = 5;
   console.log(drinks);
+
+  const comCate = (w) => {
+    requestAPI.drinks.category(w).then((food) => setDrinks(food.drinks));
+  };
 
   return (
     <div>
@@ -29,12 +32,12 @@ function Drinks() {
           type="button"
           data-testid={ `${w.strCategory}-category-filter` }
           value={ w.strCategory }
-          onClick={ (e) => setDefcategoryD(e.target.value) }
+          onClick={ (e) => comCate(e.target.value) }
         >
           {w.strCategory}
         </button>
       )) }
-      { drinks.slice(0, twelve).filter(() => true).map((drink, index) => (
+      { drinks.slice(0, twelve).map((drink, index) => (
         <Link to={ `/drinks/${drink.idDrink}` } key={ drink.idDrink }>
           <RenderCard
             key={ drink.idDrink }
