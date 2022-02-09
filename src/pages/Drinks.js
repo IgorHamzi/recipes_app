@@ -9,7 +9,9 @@ import RenderCard from '../components/RenderCard';
 import GlobalContext from '../context/GlobalContext';
 
 function Drinks() {
-  const { drinks, setDrinks, categoryD, setCategoryD } = useContext(GlobalContext);
+  const { drinks, setDrinks, categoryD, setCategoryD,
+    defcategoryD, setDefcategoryD, defcategoryDv,
+    setDefcategoryDv } = useContext(GlobalContext);
   useEffect(() => {
     requestAPI.drinks.nameOrFirst12().then((data) => setDrinks(data.drinks));
     requestAPI.drinks.categories().then((food) => setCategoryD(food.drinks));
@@ -20,12 +22,38 @@ function Drinks() {
   console.log(drinks);
 
   const comCate = (w) => {
-    requestAPI.drinks.category(w).then((food) => setDrinks(food.drinks));
+    setDefcategoryDv(w);
+    if (defcategoryD === false && w !== defcategoryDv) {
+      requestAPI.drinks.category(w).then((food) => setDrinks(food.drinks));
+      setDefcategoryD(true);
+    }
+    if (defcategoryD === true && w === defcategoryDv) {
+      requestAPI.drinks.nameOrFirst12().then((food) => setDrinks(food.drinks));
+      setDefcategoryD(false);
+      setDefcategoryDv('');
+    }
+    if (defcategoryD === true && w !== defcategoryDv) {
+      requestAPI.drinks.category(w).then((food) => setDrinks(food.drinks));
+      setDefcategoryD(false);
+    }
+  };
+
+  const comCate1 = () => {
+    requestAPI.drinks.nameOrFirst12().then((food) => setDrinks(food.drinks));
+    setDefcategoryD(false);
   };
 
   return (
     <div>
       <Header title="Drinks" haveSearch />
+      <button
+        type="button"
+        data-testid="All-category-filter"
+        // value={ w.strCategory }
+        onClick={ () => comCate1() }
+      >
+        All
+      </button>
       { categoryD.slice(0, twelve2).map((w, i) => (
         <button
           key={ i }
