@@ -76,7 +76,7 @@ function DrinkInProgress() {
         className="start-btn"
       >
         <a
-          href={ `/drinks/${id}/in-progress` }
+          href="/done-recipes"
 
         >
           Finish Recipe
