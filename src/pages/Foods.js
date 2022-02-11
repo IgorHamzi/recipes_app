@@ -77,7 +77,7 @@ function Foods() {
         </Link>
       )) }
       <Footer />
-      { (meals.length === 1 && categoryF.strCategory !== meals.strCategory)
+      { (meals.length === 1 && defcategoryFv !== 'Goat')
        && <Redirect to={ `/foods/${meals[0].idMeal}` } />}
     </div>
   );
