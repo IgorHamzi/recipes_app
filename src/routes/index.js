@@ -26,10 +26,8 @@ export default function Routes() {
       <main>
         <Switch>
           <Route exact path="/">
-            {redirect ? <Redirect to="/foods" /> : <Login />}
+            {redirect ? <Redirect to={ { pathname: '/foods' } } /> : <Login />}
           </Route>
-          <Route exact path="/foods" component={ Foods } />
-          <Route exact path="/drinks" component={ Drinks } />
           <Route exact path="/foods/:id" component={ FoodDetails } />
           <Route exact path="/drinks/:id" component={ DrinkDetails } />
           <Route
@@ -68,6 +66,8 @@ export default function Routes() {
           <Route exact path="/profile" component={ Profile } />
           <Route exact path="/done-recipes" component={ DoneRecipes } />
           <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
+          <Route exact path="/foods" component={ Foods } />
+          <Route exact path="/drinks" component={ Drinks } />
         </Switch>
       </main>
     </div>

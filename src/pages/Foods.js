@@ -44,6 +44,10 @@ function Foods() {
     setDefcategoryF(false);
   };
 
+  function hh() {
+    return defcategoryFv !== 'Goat' && meals.length === 1;
+  }
+
   return (
     <div>
       <Header title="Foods" haveSearch />
@@ -77,8 +81,8 @@ function Foods() {
         </Link>
       )) }
       <Footer />
-      { (meals.length === 1 && defcategoryFv !== 'Goat')
-       && <Redirect to={ `/foods/${meals[0].idMeal}` } />}
+      { hh() ? <Redirect to={ { pathname: `/foods/${meals[0].idMeal}` } } />
+        : <Redirect to={ { pathname: '/foods' } } />}
     </div>
   );
 }
